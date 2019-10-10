@@ -10,7 +10,7 @@
  }
  function getcategories(){
  	$db = new Database;
- 	$db->query('SELECT * FROM cate');
+ 	$db->query('SELECT * FROM categories');
 
  	$resultset = $db->resultset();
 

@@ -21,10 +21,10 @@
                 <div class="block">
                   <h3>Categories</h3>
                   <div class="list-group">
-                    <a href="#" class="list-group-item active">All Topic <span class="badge pull-right">14</span></a>
-                    <a href="#" class="list-group-item">Design <span class="badge pull-right">7</span></a>
-                    <a href="#" class="list-group-item">Development <span class="badge pull-right">5</span></a>
-
+                    <a href="topics.php" class="list-group-item <?php echo is_active(null);?>">All Topic <span class="badge pull-right"><?php ?></span></a>
+                    <?php foreach ( getcategories() as $cate): ?>
+                    <a href="topics.php?category=<?php echo $cate['id']; ?>" class="list-group-item <?php echo is_active($cate['id']);?>"><?php echo $cate['name'];?> <span class="badge pull-right"></span></a>
+                  <?php endforeach; ?>
                   </div>
 
                 </div>

@@ -7,4 +7,5 @@
   // $topic = new Topic;
   // get template and assign vars
   $template = new Template('Templates/topic.php');
+  
   echo $template;

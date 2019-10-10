@@ -13,12 +13,19 @@
     <link rel="stylesheet" href="<?=BASE_URL;?>Templates/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=BASE_URL;?>Templates/css/bootstrap.css">
 
-    <title>space</title>
+    <title>
+      space
+    </title>
  <!-- php5 shim and Respond.js for IE8 support of php5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/php5shiv/3.7.2/php5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <?php 
+    if(!isset($title)){
+      $title=SITE_TITLE;
+    }
+    ;?>
   </head>
 
   <body>
@@ -49,7 +56,7 @@
             <div class="col-md-8">
                  <div class="main">
                       <div class="block">
-                        <h1 class="pull-left">Wellcom to TalkingSpace</h1>
+                        <h1 class="pull-left"><?=$title;?></h1>
                         <h4 class="pull-right">A semple topics</h4>
                         <div class="clearfix"></div>
                         <hr>

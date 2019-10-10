@@ -11,13 +11,15 @@
                       <div class="topic-content col-md-12">
                         <h3><a href="topic.php?<?=$topic['id'];?>"><?=$topic['title'];?></a></h3>
                         <div class="topic-info">
+                          &#9632;
                           <a href="topics.php.php?=category<?=urlFormat($topic['category_id']);?>">
                             <?=$topic['name'];?>    
                           </a>
-                           >> <a href="topics.php.php?=user<?=urlFormat($topic['user_id']);?>">
+                           &#9632; <a href="topics.php.php?=user<?=urlFormat($topic['user_id']);?>">
                             <?=$topic['username'];?></a> 
+                            &#9632;
                           <span>post on <?= formateDate($topic['create_date']);?></span>
-                          <span class="badge pull-right">7</span>
+                          <span class="badge pull-right"><?=replycount($topic['id']);?></span>
                         </div>
                       </div>
                     </div>
@@ -36,7 +38,7 @@
     <h3>form statistics</h3>
     <ul>
       <li>Total number of users : <strong>52</strong></li>
-      <li>Total number of topics : <strong>10</strong></li>
-      <li>Total number of categories : <strong>5</strong></li>
+      <li>Total number of topics : <strong><?=$totalTopics;?></strong></li>
+      <li>Total number of categories : <strong><?=$totalcategories;?></strong></li>
     </ul>
-<?php //include('../includes/footer.php');?>
+<?php include('../includes/footer.php');?>

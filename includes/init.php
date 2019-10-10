@@ -12,5 +12,6 @@
 //load clasess
 function __autoload($class_name)
 {
-	require_once('Templates/'.$class_name.'.php');
+	require_once('classes/'.$class_name.'.php');
 }
+include 'header.php';

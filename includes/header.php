@@ -59,4 +59,4 @@
                         <h4 class="pull-right">A semple topics</h4>
                         <div class="clearfix"></div>
                         <hr>
-              
+              <?=displymessage();?>

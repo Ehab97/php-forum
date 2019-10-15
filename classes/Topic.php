@@ -51,9 +51,11 @@
             return $rows;
        }
         public function getByCategory($category_id){
-        $this->db->query("SELECT topics.*,users.username,users.avatar,categories.name FROM 
+        $this->db->query("SELECT topics.*,categories.*,users.username,users.avatar FROM 
                     `topics` INNER JOIN `users` ON topics.user_id = users.id
-                    INNER JOIN `categories` ON topics.category_id=:category_id");
+                    INNER JOIN `categories` ON topics.category_id=categories.id
+                    WHERE  topics.category_id=:category_id");
+
      
         //grap result
         $this->db->bind(':category_id',$category_id);

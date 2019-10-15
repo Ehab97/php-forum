@@ -1,5 +1,5 @@
 <?php include '../includes/header.php';?>
-      <form role="form" enctype="multipart/form-data"method="post" action="register.php">
+      <form role="form" enctype="multipart/form-data" method="post" action="register.php">
                           <div class="form-group">
                             <label>name*</label>
                             <input type="name" name="name"class="form-control"placeholder="Enter name">
@@ -18,7 +18,7 @@
                           </div>
                           <div class="form-group">
                             <label>confirm Password*</label>
-                            <input type="password" name="confirmpassword" class="form-control"  placeholder="Password">
+                            <input type="password" name="password2" class="form-control"  placeholder="Password">
                           </div>
                           <div class="form-group">
                             <label>Upload Avatar*</label>
@@ -29,7 +29,7 @@
                             <label>about me*</label>
                             <textarea id="about" rows="6"cols="80" class="form-control"name="about" placeholder="tell about your self(optional)"></textarea>
                           </div>
-                          <button type="submit" class="btn btn-default">register</button>
+                          <button type="submit" class="btn btn-default" name="register">register</button>
                         </form>
                         <br><br><br>
 

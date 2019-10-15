@@ -44,6 +44,12 @@
             $rows=$this->db->single();
             return $rows;
        }
+       public function getUser($user_id){
+            $this->db->query('SELECT * FROM users WHERE id =:user_id');
+            $this->db->bind(':user_id',$user_id);
+            $rows=$this->db->single();
+            return $rows;
+       }
         public function getByCategory($category_id){
         $this->db->query("SELECT topics.*,users.username,users.avatar,categories.name FROM 
                     `topics` INNER JOIN `users` ON topics.user_id = users.id
@@ -51,6 +57,17 @@
      
         //grap result
         $this->db->bind(':category_id',$category_id);
+        $results = $this->db->resultset();
+        return $results; 
+      }
+       public function getByUser($user_id){
+        $this->db->query("SELECT topics.*,categories.*,users.username,users.avatar FROM 
+                          `topics` INNER JOIN `categories` ON topics.category_id = categories.id
+                          INNER JOIN `users` ON topics.user_id = users.id
+                          WHERE  topics.user_id=:user_id");
+     
+        //grap result
+        $this->db->bind(':user_id',$user_id);
         $results = $this->db->resultset();
         return $results; 
       }

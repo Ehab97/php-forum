@@ -1,9 +1,8 @@
 <?php require_once('includes/init.php');?>
 
  <?php 
-  // $topic = new Topic;
-  // get template and assign vars
- 		$topic=new Topic();
+		// get template and assign vars
+	 	// $topic=new Topic();
 		//throw the query result to view topic
  		$category = isset($_GET['category']) ? $_GET['category'] : null;
 		$template = new Template('Templates/topics.php');

@@ -13,9 +13,9 @@
        //get all topics
        public function getAllTopics(){
        		$this->db->query("SELECT topics.*,users.username,users.avatar,categories.name FROM 
-       						  `topics` INNER JOIN `users` ON topics.user_id = users.id
-       						  INNER JOIN `categories` ON topics.category_id=categories.id
-       						  ORDER BY 	create_date DESC");
+       						        `topics` INNER JOIN `users` ON topics.user_id = users.id
+       						        INNER JOIN `categories` ON topics.category_id=categories.id
+       						        ORDER BY 	create_date DESC");
        		$result=$this->db->resultset();
        		return $result;
        }
@@ -54,5 +54,25 @@
         $results = $this->db->resultset();
         return $results; 
       }
-       
+       public function getTopic($id){
+            $this->db->query("SELECT topics.*,users.username,users.avatar FROM 
+                    `topics` INNER JOIN `users` ON topics.user_id = users.id
+                     WHERE topics.id=:id");
+     
+        //grap result
+        $this->db->bind(':id',$id);
+        $results = $this->db->single();
+        return $results;  
+       }
+         public function getReplies($topic_id){
+        $this->db->query("SELECT replies.*,users.* FROM  replies 
+                          INNER JOIN `users` ON replies.user_id = users.id
+                          WHERE replies.topic_id=:topic_id
+                          ORDER BY create_date DESC");
+     
+        //grap result
+        $this->db->bind(':topic_id',$topic_id);
+        $results = $this->db->resultset();
+        return $results; 
+      }
    }

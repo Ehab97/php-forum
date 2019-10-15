@@ -18,7 +18,7 @@
  }
  function userpostcount($user_id){
  	$db = new Database;
- 	$db->query('SELECT * FROM topic WHERE user_id = :user_id');
+ 	$db->query('SELECT * FROM topics WHERE user_id = :user_id');
  	$db->bind(':user_id', $user_id);
  	$rows = $db->resultset();
  	$topic_count = $db->rowCount();

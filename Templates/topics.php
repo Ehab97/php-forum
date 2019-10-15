@@ -1,4 +1,4 @@
-<?php //include '../includes/header.php';?>
+<?php require_once(__DIR__.'/../includes/header.php');?>
        <ul id="topics">
         <?php if($topics):?>
             <?php foreach ($topics as $topic): ?>
@@ -9,13 +9,13 @@
                     </div>
                     <div class="col-md-10">
                       <div class="topic-content col-md-12">
-                        <h3><a href="topic.php?<?=$topic['id'];?>"><?=$topic['title'];?></a></h3>
+                        <h3><a href="topic.php?id=<?=$topic['id'];?>"><?=$topic['title'];?></a></h3>
                         <div class="topic-info">
                           &#9632;
-                          <a href="topics.php.php?=category<?=urlFormat($topic['category_id']);?>">
+                          <a href="topics.php?category=<?=urlFormat($topic['category_id']);?>">
                             <?=$topic['name'];?>    
                           </a>
-                           &#9632; <a href="topics.php.php?=user<?=urlFormat($topic['user_id']);?>">
+                           &#9632; <a href="topics.php?user=<?=urlFormat($topic['user_id']);?>">
                             <?=$topic['username'];?></a> 
                             &#9632;
                           <span>post on <?= formateDate($topic['create_date']);?></span>
@@ -41,4 +41,4 @@
       <li>Total number of topics : <strong><?=$totalTopics;?></strong></li>
       <li>Total number of categories : <strong><?=$totalcategories;?></strong></li>
     </ul>
-<?php include '../includes/footer.php';?>
+<?php require_once '../includes/footer.php';?>

@@ -21,9 +21,9 @@
                 <div class="block">
                   <h3>Categories</h3>
                   <div class="list-group">
-                    <a href="topics.php" class="list-group-item <?php echo is_active(null);?>">All Topic <span class="badge pull-right"><?php ?></span></a>
+                    <a href="topics.php" class="list-group-item <?= is_active(null);?>">All Topic <span class="badge pull-right"><?php ?></span></a>
                     <?php foreach ( getcategories() as $cate): ?>
-                    <a href="topics.php?category=<?php echo $cate['id']; ?>" class="list-group-item <?php echo is_active($cate['id']);?>"><?php echo $cate['name'];?> <span class="badge pull-right"></span></a>
+                    <a href="topics.php?category=<?= $cate['id']; ?>" class="list-group-item <?= is_active($cate['id']);?>"><?= $cate['name'];?> <span class="badge pull-right"></span></a>
                   <?php endforeach; ?>
                   </div>
 

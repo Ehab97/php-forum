@@ -18,9 +18,13 @@ class Template{
    public function __toString(){
     extract($this->vars);
     chdir(dirname($this->templete));
+    // die(basename($this->templete));
     ob_start();
-    include basename($this->templete);
+    require_once __Dir__.'/../'.$this->templete;
+    // require_once __Dir__.'/'.'../'.$this->templete;
     return ob_get_clean();
   }
-
+  public static function view($page_name,$var=[]){
+    require_once __DIR__.'/../Views/'.$page_name.'.php';
+  }
 }

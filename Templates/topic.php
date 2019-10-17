@@ -34,14 +34,14 @@
       <div class="clearfix"></div>
       <h3>reply to topic</h3>
       <?php if (isloggedin()): ;?>
-						      <form role="form" method="post" action="topic.php?id=<?=$topic['id'];?>">
-						        <div class="form-group">
-						          <textarea id="about" rows="10"cols="80" class="form-control"name="body"></textarea>
-						          <script>CKEDITOR.replace('body')</script>
-						        </div>
-						        <button type="submit" name="replay" class="btn btn-default">submit</button>
-						      </form>
-						    <?php else: ?>
+								      <form role="form" method="post" action="topic.php?id=<?=$topic['id'];?>">
+								        <div class="form-group">
+								          <textarea id="about" rows="10"cols="80" class="form-control"name="body"></textarea>
+								          <script>CKEDITOR.replace('body')</script>
+								        </div>
+								        <button type="submit" name="replay" onsubmit="<?php $_SESSION['user_id_replay'] = $replay['user_id'];?>" class="btn btn-default">submit</button>
+								      </form>
+								    <?php else: ?>
     <h4>please login to replay</h4>
     <?php endif;?>
       <br><br><br>

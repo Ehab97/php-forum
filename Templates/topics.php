@@ -5,7 +5,8 @@
                 <li class="topic">
                   <div class="row">
                     <div class="col-md-2">
-                      <img class="avatar" height="90"src="<?=BASE_URL;?>Templates/images/<?=$topic['avatar'];?>">
+                      <img class="avatar" height="90"
+                      src="<?=BASE_URL;?>Templates/images/<?=$topic['avatar'];?>">
                     </div>
                     <div class="col-md-10">
                       <div class="topic-content col-md-12">

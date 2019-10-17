@@ -94,7 +94,14 @@ class User {
 		unset($_SESSION['name']);
 
 	}
-
+	public function getUserId($username, $password) {
+		$this->db->query('SELECT id FROM `users` WHERE username=:username
+			and password=:password');
+		$this->db->bind(':username', $username);
+		$this->db->bind(':password', $password);
+		$id = $this->db->single();
+		return $id['id'];
+	}
 	public function gettotalnumofusers() {
 		$this->db->query('SELECT * FROM users');
 		$rows = $this->db->resultset();

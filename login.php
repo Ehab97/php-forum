@@ -6,6 +6,7 @@ if (isset($_POST['login'])) {
 	echo 'username=' . $username;
 	$user = new User();
 	if ($user->login($username, $password)) {
+		$_SESSION['user_id_logged'] = $user->getUserId($username, $password);
 		redirect('index.php', 'success log in ', 'success');
 	} else {
 		edirect('index.php', 'unvalid log in please try again ', 'error');

@@ -5,17 +5,17 @@
             <div class="col-md-4">
               <div class="sidebar">
                 <?php if (isloggedin()): ;?>
-									                    <div class="block">
-									                    <h3>Login form</h3>
-														                    <div class="userdate">
-														                    <h4> welcome ,<?=$_SESSION['userlogin']; //getUser();?></h4>
-														                    </div>
-														                  <br>
-														                  <form role="form" method="post" action="logout.php" class="text-center">
-														                     <input type="submit" name="logout" value="logout" class="btn btn-info">
-														                  </form>
-									                    </div>
-																	<?php else: ?>
+										                    <div class="block">
+										                    <h3>Login form</h3>
+															                    <div class="userdate">
+															                    <h4> welcome ,<?=$_SESSION['userlogin']; //getUser();?></h4>
+															                    </div>
+															                  <br>
+															                  <form role="form" method="post" action="logout.php" class="text-center">
+															                     <input type="submit" name="logout" value="logout" class="btn btn-info">
+															                  </form>
+										                    </div>
+																		<?php else: ?>
 	               <div class="block">
 	                  <h3>Login form</h3>
 	                 <form method="post" action="login.php">

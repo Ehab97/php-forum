@@ -3,7 +3,6 @@
 if (isset($_POST['login'])) {
 	$username = $_POST['username'];
 	$password = $_POST['password']; //md5($_POST['password']);
-	echo 'username=' . $username;
 	$user = new User();
 	if ($user->login($username, $password)) {
 		$_SESSION['user_id_logged'] = $user->getUserId($username, $password);

@@ -3,13 +3,10 @@
 //init there are every single function and things we use with all pages so but in init file in core folder
 require_once 'includes/init.php';
 ?>
-
  <?php
 $topic = new Topic();
 $topic_id = $_GET['id'];
-// die($_GET['user']);
 // get template and assign vars
-// echo $_SESSION['user_id_logged'];
 if (isset($_POST['replay'])) {
 	$i = $_GET['topic'];
 	$valed = new Validator;

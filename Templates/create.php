@@ -1,5 +1,5 @@
 <?php include '../includes/header.php';?>
-   <form role="form" method="post" action="create.php">
+   <form role="form" method="post" action="create.php?user=">
                           <div class="form-group">
                             <label>title</label>
                             <input type="name" name="title"class="form-control"placeholder="title">

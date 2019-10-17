@@ -90,4 +90,33 @@ class Topic {
 		$results = $this->db->resultset();
 		return $results;
 	}
+	public function create($dataq) {
+		$this->db->query('INSERT INTO topics(category_id,user_id,title,body,last_activity)
+            VALUES (:category, :user_id, :title, :body, :last_activity)');
+		//bind value
+		$this->db->bind(':category', $dataq['category']);
+		$this->db->bind(':user_id', $dataq['user_id']);
+		$this->db->bind(':title', $dataq['title']);
+		$this->db->bind(':body', $dataq['body']);
+		$this->db->bind(':last_activity', $dataq['last_activity']);
+		//execute
+		if ($this->db->execute()) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	public function reply($data) {
+		$this->db->query('INSERT INTO `replies`(`topic_id`, `user_id`, `body`)
+						   VALUES(:topic_id,:user_id,:body)');
+		$this->db->bind(':topic_id', $data['topic_id']);
+		$this->db->bind(':user_id', $data['user_id']);
+		$this->db->bind(':body', $data['body']);
+		if ($this->db->execute()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

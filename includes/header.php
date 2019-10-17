@@ -1,3 +1,8 @@
+    <?php
+if (!isset($title)) {
+	$title = SITE_TITLE;
+}
+;?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,19 +17,20 @@
     <link rel="stylesheet" href="<?=BASE_URL;?>Templates/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=BASE_URL;?>Templates/css/bootstrap.css">
 
+
     <title>
-      space
+      <?=$title;?>
     </title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="<?=BASE_URL;?>Templates/js/bootstrap.min.js"></script>
+  <script src="<?=BASE_URL;?>Templates/js/ckeditor/ckeditor.js"></script>
+
  <!-- php5 shim and Respond.js for IE8 support of php5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/php5shiv/3.7.2/php5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <?php 
-    if(!isset($title)){
-      $title=SITE_TITLE;
-    }
-    ;?>
+
   </head>
 
   <body>
@@ -43,8 +49,12 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="register.php">Create An Account</a></li>
-            <li><a href="create.php">Create A topic </a></li>
+             <?php if (!isloggedin()): ;?>
+							            <li><a href="register.php">Create An Account</a></li>
+							            <?php endif;?>
+             <?php if (isloggedin()): ;?>
+								            <li><a href="create.php">Create A topic </a></li>
+								            <?php endif;?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

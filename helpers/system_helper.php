@@ -1,56 +1,53 @@
-<?php 
-function redirect($page = FALSE, $message = NULL,$message_type = NULL){
- if (is_string($page)) {
- 	$location = $page;
- }else{
- 	$location = $_SERVER['SCRIPT_NAME'];
- }
- if ($message != NULL) {
- 	$_SESSION['message'] = $message;
- }
+<?php
+function redirect($page = FALSE, $message = NULL, $message_type = NULL) {
+	if (is_string($page)) {
+		$location = $page;
+	} else {
+		$location = $_SERVER['SCRIPT_NAME'];
+	}
+	if ($message != NULL) {
+		$_SESSION['message'] = $message;
+	}
 
-  if ($message_type != NULL) {
- 	$_SESSION['message_type'] = $message_type;
- }
-
- header('Location: '.$location);
- exit;
-
+	if ($message_type != NULL) {
+		$_SESSION['message_type'] = $message_type;
+	}
+	header('Location: ' . $location);
+	exit;
 }
 
-function displymessage(){
+function displymessage() {
 	if (!empty($_SESSION['message'])) {
 		$message = $_SESSION['message'];
-
 		if (!empty($_SESSION['message_type'])) {
-		$message_type = $_SESSION['message_type'];
+			$message_type = $_SESSION['message_type'];
+			if ($message_type == 'error') {
+				echo '<div class="alert alert-danger">' . $message . '</div>';
+			} else {
+				echo '<div class="alert alert-success">' . $message . '</div>';
 
-		if ($message_type == 'error') {
-		echo '<div class="alert alert-danger">'.$message.'</div>';
-	}else{
-	echo '<div class="alert alert-success">'.$message.'</div>';
-
-	}
-	}
-	unset($_SESSION['message']);
-	unset($_SESSION['message_type']);
-	}else{
+			}
+		}
+		unset($_SESSION['message']);
+		unset($_SESSION['message_type']);
+	} else {
 		echo '';
 	}
 
 }
 
-function isloggedin(){
+function isloggedin() {
 	if (isset($_SESSION['is_logged_in'])) {
 		return true;
-	}else{
+	} else {
 		return false;
 	}
 }
-function getUser(){
+function getUserD() {
 	$userarray = array();
 	$userarray['user_id'] = $_SESSION['user_id'];
 	$userarray['username'] = $_SESSION['username'];
 	$userarray['name'] = $_SESSION['name'];
-	return$_SESSION['user_id'];
+	// return $_SESSION['user_id'];
+	return $userarray;
 }
